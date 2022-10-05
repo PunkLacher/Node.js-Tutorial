@@ -1,29 +1,11 @@
-const {readFile, writeFile} = require('fs');
 
-readFile('./content/first.txt','utf8',(err,result) => {
-    if(err) {
-        console.log(err)
-        return
-    }
-    const first = result;
+//import lodash as lodash
+const lodash = require('lodash')
 
-readFile('./content/second.txt','utf8',(err,result) => {
-    if(err) {
-        console.log(err)
-        return
-    }
-    const second = result;
+//const an array with nested arrays
+const items = [1,[2,[3,[4]]]]
 
-writeFile('./content/result-async.txt',
-    `Here is the result : ${first}, ${second}`,(err,result)=>{
-        if(err){
-            console.log(err);
-            return
-    }
-    console.log(result);
-       
-       } 
-    )
+//use lodash method called flattenDeep to flatten nest array to flat array
+const newItems = lodash.flattenDeep(items)
+console.log(newItems)
 
-})  
-})
